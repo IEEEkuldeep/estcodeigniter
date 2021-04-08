@@ -160,7 +160,7 @@
                                             <td>
                                                 <div class="">
                                                     <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;
-                                                    <label>contact </label>
+                                                    <label>Contact </label>
 
                                                 </div>
                                             </td>

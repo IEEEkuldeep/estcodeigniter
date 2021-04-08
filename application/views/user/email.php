@@ -102,8 +102,8 @@
                             <div class="form-group">
                                 <label>FirstName</label>
 
-                                <input type="text" id="name" name="firstname" placeholder="FirstName"
-                                    class="form-control">
+                                <input type="text" id="name" onkeyup="namevalid()" name="firstname"
+                                    placeholder="FirstName" class="form-control">
                             </div>
 
                             <label>LastName</label>
@@ -197,20 +197,17 @@
 
         var emailReg = "/^([w-.]+@([w-]+.)+[w-]{2,4})?$/";
         // Conditions
-        if (name != '' && mail != '' && contact != '') {
-            if (email.match(emailReg)) {
-                if (document.getElementById("male").checked || document.getElementById("female").checked) {
-                    if (contact.length == 10) {
-                        alert("All type of validation has done on OnSubmit event.");
-                        return true;
-                    } else {
-                        alert("The Contact No. must be at least 10 digit long!");
-                        return false;
-                    }
+        if (name != '' && mail != '') {
+            if (mail.match(emailReg)) {
+
+                if (contact.length == 10) {
+                    alert("All type of validation has done on OnSubmit event.");
+                    return true;
                 } else {
-                    alert("You must select gender.....!");
+                    alert("The Contact No. must be at least 10 digit long!");
                     return false;
                 }
+
             } else {
                 alert("Invalid Email Address...!!!");
                 return false;
@@ -251,6 +248,19 @@
         //     return false;
         // }
 
+    }
+    function namevalid() {
+        character = /[A-Za-z]/;
+
+        var name = document.getElementById("name").value;
+        if (name.match(character)) {
+            console.log("it's a character");
+        }
+        else {
+            console.log("it's a number");
+        }
+
+        // console.log(name);
     }
 
 </script>
