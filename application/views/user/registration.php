@@ -7,65 +7,65 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script>
+            </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-        </script>
+            </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
+            </script>
         <style>
-        main .card {
-            background-color: #3475;
-        }
+            main .card {
+                background-color: #3475;
+            }
 
-        body {
-            background: #fe8c00;
-            /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right,
-                    #f83600,
-                    #fe8c00);
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right,
-                    #f83600,
-                    #fe8c00);
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            body {
+                background: #fe8c00;
+                /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right,
+                        #f83600,
+                        #fe8c00);
+                /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right,
+                        #f83600,
+                        #fe8c00);
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-            color: white;
-        }
+                color: white;
+            }
 
-        h3 {
-            font-family: Times New Roman;
-            font-weight: bold;
-        }
+            h3 {
+                font-family: Times New Roman;
+                font-weight: bold;
+            }
 
-        hr {
-            border-bottom: solid white 1px;
-        }
+            hr {
+                border-bottom: solid white 1px;
+            }
 
-        .btn {
-            background: #0f2027;
-            /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right,
-                    #2c5364,
-                    #203a43,
-                    #0f2027);
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right,
-                    #2c5364,
-                    #203a43,
-                    #0f2027);
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
+            .btn {
+                background: #0f2027;
+                /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right,
+                        #2c5364,
+                        #203a43,
+                        #0f2027);
+                /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right,
+                        #2c5364,
+                        #203a43,
+                        #0f2027);
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            }
 
-        input {
-            background-color: #3475 !important;
-            color: white !important;
-        }
+            input {
+                background-color: #3475 !important;
+                color: white !important;
+            }
 
-        ::placeholder {
-            color: white !important;
-        }
+            ::placeholder {
+                color: white !important;
+            }
 
         </style>
 
@@ -99,9 +99,11 @@
                 <section class="col-md-6 my-5 offset-md-3">
 
                     <div class="card shadow p-5">
-                        <form method="post">
+                        <form method="post" action="">
 
-                            <h3 class="text-center text-uppercase mb-4">Registration&nbsp;<?php echo @$error; ?></h3>
+                            <h3 class="text-center text-uppercase mb-4">Registration&nbsp;
+                                <?php echo @$error; ?>
+                            </h3>
                             <hr>
 
                             <div class="form-group">
@@ -137,8 +139,7 @@
                                 class="btn btn-block btn-secondary rounded-pill mt-3" />
                             <!-- <button >Login</button> -->
 
-                            <p class="mt-3 text-white">Already have an Account ? <a href="/store/index.php/Hello/login"
-                                    class="text-white"> Login
+                            <p class="mt-3 text-white">Already have an Account ? <a href="#" class="text-white"> Login
                                     Here</a></p>
 
                         </form>
@@ -150,18 +151,18 @@
 
 </html>
 <script>
-$(document).ready(function() {
-    $("#basic-addon2").click(function() {
-        let passwordField = $("#password");
-        let passwordFieldAttr = passwordField.attr("type");
+    $(document).ready(function () {
+        $("#basic-addon2").click(function () {
+            let passwordField = $("#password");
+            let passwordFieldAttr = passwordField.attr("type");
 
-        if (passwordFieldAttr == "password") {
-            passwordField.attr("type", "text");
-            $(this).html('<i class="fa fa-eye-slash" aria-hidden="true"></i>');
-        } else {
-            passwordField.attr("type", "password");
-            $(this).html('<i class="fa fa-eye" aria-hidden="true"></i>');
-        }
+            if (passwordFieldAttr == "password") {
+                passwordField.attr("type", "text");
+                $(this).html('<i class="fa fa-eye-slash" aria-hidden="true"></i>');
+            } else {
+                passwordField.attr("type", "password");
+                $(this).html('<i class="fa fa-eye" aria-hidden="true"></i>');
+            }
+        });
     });
-});
 </script>

@@ -104,7 +104,7 @@
                 <section class="col-md-6 my-5 offset-md-3">
 
                     <div class="card shadow p-5">
-                        <form method="post" action="/store/index.php/EmailController/login">
+                        <form method="post" action="/estcodeigniter/store/index.php/EmailController/login">
 
                             <h3 class="text-center text-uppercase mb-4">Login&nbsp;
                                 <?php echo @$error; ?>
@@ -117,6 +117,13 @@
                             <h3 style="color:#F44336">
 
                                 <?php echo $this->session->flashdata('item'); ?>
+
+
+                            </h3>
+                            <h3 style="color:#F44336">
+
+                                <?php echo $this->session->flashdata('profileupdate'); ?>
+
 
                             </h3>
 
@@ -151,6 +158,7 @@
 
                         </form>
                     </div>
+
                 </section>
             </div>
         </main>

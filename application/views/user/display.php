@@ -37,7 +37,7 @@
 
   echo "<tr>";
   echo "<td>".$i."</td>";
-  echo "<td>".$row->firstname."</td>";
+      echo "<td>".$row->firstname."</td>";
   echo "<td>".$row->lastname."</td>";
   echo "<td>".$row->email."</td>";
   echo "<td><a href='deletedata?id=".$row->userid."'>Delete</a></td>";

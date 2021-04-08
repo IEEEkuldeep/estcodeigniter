@@ -83,7 +83,7 @@
                         <?php
                         //  echo $this->session->flashdata('sess')
                          ?>
-                        <form method="post" action="/store/index.php/EmailController/validateotp">
+                        <form method="post" action="/estcodeigniter/store/index.php/EmailController/validateotp">
 
                             <h3 class="text-center text-uppercase mb-4">Email Verification&nbsp;
                                 <?php
