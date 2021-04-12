@@ -19,7 +19,9 @@
         </script>
         <style>
         main .card {
-            background-color: #3475;
+            background-color: #77333d00;
+    color: #f5f5f5;
+
         }
 
         body {
@@ -47,18 +49,10 @@
         }
 
         .btn {
-            background: #0f2027;
-            /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right,
-                    #2c5364,
-                    #203a43,
-                    #0f2027);
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right,
-                    #2c5364,
-                    #203a43,
-                    #0f2027);
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: #ff4b1f;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ff9068, #ff4b1f);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
         }
 
         input {
@@ -68,6 +62,10 @@
 
         ::placeholder {
             color: white !important;
+        }
+        .error{
+            color:#ff190993;
+            font-weight: 600;
         }
 
         </style>
@@ -104,7 +102,7 @@
                 <section class="col-md-6 my-5 offset-md-3">
 
                     <div class="card shadow p-5">
-                        <form method="post" action="/estcodeigniter/store/index.php/EmailController/login">
+                        <form method="post" action="/estcodeigniter/index.php/EmailController/login">
 
                             <h3 class="text-center text-uppercase mb-4">Login&nbsp;
                                 <?php echo @$error; ?>
@@ -116,7 +114,9 @@
                             </h3>
                             <h3 style="color:#F44336">
 
-                                <?php echo $this->session->flashdata('item'); ?>
+                                <?php
+                                //  echo $this->session->flashdata('item'); 
+                                 ?>
 
 
                             </h3>
@@ -134,6 +134,8 @@
                                 <label>Email</label>
                                 <!-- <input type="text" name="email" /> -->
                                 <input type="text" placeholder="Email" name="email" class="form-control">
+                                <?php echo form_error('email'); ?> 
+                                
                             </div>
 
                             <label for="Password">Password</label>
@@ -147,12 +149,14 @@
                                             aria-hidden="true"></i>
                                     </span>
                                 </div>
+                                
                             </div>
+                            <?php echo form_error('pass1'); ?> 
                             <input type="submit" name="login" value="Login"
                                 class="btn btn-block btn-secondary rounded-pill mt-3" />
                             <!-- <button >Login</button> -->
 
-                            <p class="mt-3 text-white">Don't have an Account ? <a href="/store/index.php/Hello/savedata"
+                            <p class="mt-3 text-white">Don't have an Account ? <a href="/index.php/EmailController/signup"
                                     class="text-white"> Create
                                     Here</a></p>
 

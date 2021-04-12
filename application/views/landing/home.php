@@ -288,6 +288,12 @@
 
         </div>
         <div class="container">
+        <div id="mydivs3"  class="alert alert-success">   
+                    
+                    <?php echo $this->session->flashdata('passwordchange'); ?>
+    
+</div>
+    
             <canvas id="myCanvas"></canvas>
         </div>
         <!-- Visit https://codepen.io/nicolaskadis/full/brQEOd/ for the latest, no js version! -->
@@ -418,6 +424,11 @@
 </html>
 <script>
 
+
+    
+  setTimeout(function() {
+            $('#mydivs3').hide('fast');
+        }, 3000);
 
     $(document).ready(function () {
         var front = document.getElementsByClassName("front");

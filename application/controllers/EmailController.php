@@ -25,60 +25,77 @@ class EmailController extends CI_Controller
     
 
     function send(){
+        $this->form_validation->set_rules('firstname','firstname is required','required');
+        $this->form_validation->set_rules('lastname','lastname is required','required');
+        $this->form_validation->set_rules('contact','contact no is required','required|min_length[10]|max_length[10]');
+
+        $this->form_validation->set_rules('to', 'email is already used', 'required|min_length[5]|max_length[25]|valid_email|is_unique[customer.cust_email]');
+        $this->form_validation->set_rules('pass', 'Password is required', 'required|matches[repass]');
+        $this->form_validation->set_rules('repass',' confirm password  and password not matched','required|matches[pass]');
+
+$this->form_validation->set_error_delimiters('<div class="error">','</div>');
+$this->form_validation->set_message('required', 'Your %s');
+if ($this->form_validation->run() === FALSE)
+{  
+    $this->load->view('user/email');
+}
+else{
+
+    $otp = rand(1000,9999);
         
-            $otp = rand(1000,9999);
+    $this->load->config('email');
+    $this->load->library('email');
+    $from = $this->config->item('smtp_user');
+    $to = $this->input->post('to');
+        $firstname=$this->input->post('firstname');
+        $lastname=$this->input->post('lastname');
+        $contact=$this->input->post('contact');
+        $pass=$this->input->post('pass');
+        $email=$to;
+        $this->session->set_userdata('fname', $firstname);
+        $this->session->set_userdata('lname', $lastname);
+        $this->session->set_userdata('contact', $contact);
+        $this->session->set_userdata('email', $email);
+         $this->session->set_userdata('pass', $pass);
         
-        $this->load->config('email');
-        $this->load->library('email');
-        $from = $this->config->item('smtp_user');
-        $to = $this->input->post('to');
-            $firstname=$this->input->post('firstname');
-            $lastname=$this->input->post('lastname');
-            $contact=$this->input->post('contact');
-            $pass=$this->input->post('pass');
-            $email=$to;
-            $this->session->set_userdata('fname', $firstname);
-            $this->session->set_userdata('lname', $lastname);
-            $this->session->set_userdata('contact', $contact);
-            $this->session->set_userdata('email', $email);
-             $this->session->set_userdata('pass', $pass);
-            
-        $subject = $this->input->post('subject');
-        $message = $this->input->post('message');
-        $message = '<div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
-  <div style="margin:50px auto;width:70%;padding:20px 0">
-    <div style="border-bottom:1px solid #eee">
-      <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Welcome, EncoreSky-Tech</a>
-    </div>
-    <p style="font-size:1.1em">Hi,</p>
-    <p>Thank you for choosing EncoreSky Technologies. Use the following OTP to complete your Sign Up procedures. OTP is valid for 5 minutes</p>
-    <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">
+    $subject = $this->input->post('subject');
+    $message = $this->input->post('message');
+    $message = '<div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
+<div style="margin:50px auto;width:70%;padding:20px 0">
+<div style="border-bottom:1px solid #eee">
+  <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Welcome, EncoreSky-Tech</a>
+</div>
+<p style="font-size:1.1em">Hi,</p>
+<p>Thank you for choosing EncoreSky Technologies. Use the following OTP to complete your Sign Up procedures. OTP is valid for 5 minutes</p>
+<h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">
 ';
 
 $messageData ='</h2><p style="font-size:0.9em;">Regards,<br />EncoreSky Technologies</p>
 <hr style="border:none;border-top:1px solid #eee" />
 <div style="float:right;padding:8px 0;color:#aaa;font-size:0.8em;line-height:1;font-weight:300">
-    <p>Encore Sky Technology Pvt Ltd</p>
-    <p>PU4 Scheme No.54 Vijay Nagar</p>
-    <p>Indore</p>
+<p>Encore Sky Technology Pvt Ltd</p>
+<p>PU4 Scheme No.54 Vijay Nagar</p>
+<p>Indore</p>
 </div>
 </div>
 </div>';
 
-            $this->email->set_newline("\r\n");
-            $this->email->from($from);
-            $this->email->to($to);
-            $this->email->subject($subject);
-            // $this->email->message($message.$otp);
-            $this->email->message($message." OTP->".$otp.$messageData);
-            if ($this->email->send())
-            {
-                // print_r($otp);
-                $this->otp($otp);
-            }
-            else{
-            show_error($this->email->print_debugger());
-            }
+        $this->email->set_newline("\r\n");
+        $this->email->from($from);
+        $this->email->to($to);
+        $this->email->subject($subject);
+        // $this->email->message($message.$otp);
+        $this->email->message($message." OTP->".$otp.$messageData);
+        if ($this->email->send())
+        {
+            // print_r($otp);
+            $this->otp($otp);
+        }
+        else{
+        show_error($this->email->print_debugger());
+        }
+}
+
 }
 
 function otp($otp){
@@ -99,7 +116,12 @@ function dashboarddata($data){
         // $data['user_data'][0]->cust_email;
         
         if($this->session->e){
-$this->load->view("user/dashboard.php",$data);
+            // $this->session->mark_as_temp('loginsuccess',5);
+            // $this->session->mark_as_temp('loginsuccess',5,'login successfully')
+            $this->session->mark_as_flash('loginsuccess');
+                 $this->session->set_flashdata('loginsuccess', 'login successfully');
+                 
+        $this->load->view("user/dashboard.php",$data);
         }
     
     // print_r($data['user_data'][0]->cust_email);
@@ -107,10 +129,24 @@ $this->load->view("user/dashboard.php",$data);
 function login(){
 
     // $this->load->View("user/login.php",$data);
-     $this->load->helper(array('form', 'url'));
+    //  $this->load->helper(array('form', 'url'));
 
-                $this->load->library('form_validation');
-     if($this->input->post('email')&&$this->input->post('pass1')){
+                // $this->load->library('form_validation');
+
+                $this->form_validation->set_rules('email', 'Email is Required', 'required|min_length[5]|max_length[25]');
+                $this->form_validation->set_rules('pass1', 'Password is required', 'required');
+
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+        $this->form_validation->set_message('required', 'Your %s');
+        if ($this->form_validation->run() === FALSE)
+        {  
+            $this->load->view('user/login');
+        }
+
+
+     
+     else{
+        if($this->input->post('email')&&$this->input->post('pass1')){
             // $this->form_validation->set_rules('email','Email','required | valid_email');
             // $this->form_validation->set_rules('pass1', 'Password', 'required');
 
@@ -119,6 +155,7 @@ function login(){
             $p=$this->input->post('pass1');
             $this->load->model('UserModel');
              $this->session->set_userdata('e', $e);
+             $this->session->set_userdata('p',$p);
             //   $this->session->e;
 
             $data['user_data'] = $this->UserModel->validateUser($e,$p);    
@@ -127,7 +164,8 @@ function login(){
 
          $this->session->sess_destroy();
       $this->session->sess_destroy();
-             redirect(base_url());
+            //  redirect(base_url());
+            $this->load->view('user/login');
     
             }
             else{
@@ -142,12 +180,24 @@ function login(){
             }
             
      }
-     else{
          $this->session->set_flashdata('item','This field is required');   
-            $this->load->View("user/login.php");  
+            // $this->load->View("user/login.php");  
      }
 }
 function validateotp(){
+
+  $this->form_validation->set_rules('otp', 'OTP is Required', 'required|min_length[4]|max_length[4]');
+    
+
+        $this->form_validation->set_error_delimiters('<div class="error">','</div>');
+        $this->form_validation->set_message('required', 'Your %s');
+        if ($this->form_validation->run() === FALSE)
+        {  
+            $this->load->view('user/otptemp');
+        }
+        else{
+
+
         if($this->input->post('otp')){
             $n=$this->input->post('otp');
             // $otp = $this->otp;
@@ -184,6 +234,8 @@ function validateotp(){
             $this->load->View("user/otptemp.php");  
         }
 
+        }
+
     }
 
     function updateprofile(){
@@ -208,12 +260,33 @@ function validateotp(){
              $userprofile['cust_email'] = $mail;
              
               $s=$this->UserModel->UpdateProfile($userprofile,$mail);
-              print_r($s);
+            //   print_r($s);
               if($s==1){
-                  $this->session->set_flashdata('profileupdate','profile updated Successfully');  
+                              
+            echo  $e = $this->session->e;
+            echo $p = $this->session->p;
+            $data['user_data'] = $this->UserModel->validateUser($e,$p);    
+            // print_r($data['user_data']);
+            if($data['user_data']==0){
+
+         $this->session->sess_destroy();
+      $this->session->sess_destroy();
+             redirect(base_url());
+    
+            }
+            else{
+                  
+                    if ($e||$p)
+                    {
+                        $this->session->set_flashdata('updateprofile','update profile successfully');
+                        $this->dashboarddata($data);
+                    }
+
+            }
+                //   $this->session->set_flashdata('profileupdate','profile updated Successfully');  
             //  $this->session->sess_destroy();
             //     $this->session->sess_destroy();
-                redirect('/EmailController/login'); 
+                // redirect('/EmailController/login'); 
               }
               else{
                        
@@ -262,21 +335,54 @@ if($this->input->post('pass')){
         //   print_r($data);
 
           if($data['us']==0){
+                          
+            echo  $e = $this->session->e;
+            echo $p = $this->session->p;
+            $data['user_data'] = $this->UserModel->validateUser($e,$p);    
+            // print_r($data['user_data']);
+            if($data['user_data']==0){
+
+        //  $this->session->sess_destroy();
+    //   $this->session->sess_destroy();
+      
+             redirect(base_url());
+            //  $this->session->set_flashdata('passwordchange', 'passsword changed successful');
+    
+            }
+            else{
+                  
+                    if ($e||$p)
+                    {
+                        
+                        $this->session->set_flashdata('oldpass', 'old pass not matched');
+                        $this->dashboarddata($data);
+                        
+                    }
+
+            }
               
-               $this->load->View("landing/home.php");
+            //    $this->load->View("landing/home.php");
             echo " old passsword not matched";
 
           }
-        //   elseif($data['us']==1){
-        //     $this->load->View("user/dashboard.php");
-        //   }
+          elseif($data['us']==1){
+            $this->session->set_flashdata('passwordchange', 'Passsword changed successful');
+            redirect(base_url());
+
+            // $this->load->View("user/dashboard.php");
+          }
     //           $this->session->sess_destroy();
     //   $this->session->sess_destroy();
             //  $this->load->View("user/login.php");
+
+
+
+
               
-$this->load->View("landing/home.php");
+// $this->load->View("landing/home.php");
         }
         else{
+            
             echo "field can not be blank";
         }
 
@@ -306,8 +412,8 @@ $this->load->View("landing/home.php");
         if (!$this->upload->do_upload('profile_pic')) 
 		{
             $error = array('error' => $this->upload->display_errors());
-
-            $this->load->view('user/imageupload_form.php', $error);
+            print_r($error);
+            // $this->load->view('user/imageupload_form.php', $error);
 
         } 
 		else 
@@ -317,11 +423,32 @@ $this->load->View("landing/home.php");
             // print_r($data['image_metadata']['full_path']);
             $d=$data['image_metadata']['full_path'];
             // echo "<pre>";
-            $img=substr($d,38);
+            $img=substr($d,33);
             $data['pic']= $this->UserModel->profilepic($email,$img);
-            // print_r('.'.$img);
-        //  $this->load->view('imageupload_success', $data);
-         $this->load->View("landing/home.php");
+            
+              echo  $e = $this->session->e;
+              echo $p = $this->session->p;
+              $data['user_data'] = $this->UserModel->validateUser($e,$p);    
+              // print_r($data['user_data']);
+              if($data['user_data']==0){
+  
+           $this->session->sess_destroy();
+        $this->session->sess_destroy();
+               redirect(base_url());
+      
+              }
+              else{
+  // $this->load->views('user/dashboard.php');
+                       
+                      if ($e||$p)
+                      {
+                        $this->session->set_flashdata('pro','Profile update success');   
+                          $this->dashboarddata($data);
+                      }
+  
+              
+              }
+              
         }
     }
 

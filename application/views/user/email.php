@@ -19,20 +19,15 @@
             </script>
         <style>
             main .card {
-                background-color: #3475;
+
+                background-color: #77333d00;
+    color: #f5f5f5;
             }
 
             body {
-                background: #fe8c00;
-                /* fallback for old browsers */
-                background: -webkit-linear-gradient(to right,
-                        #f83600,
-                        #fe8c00);
-                /* Chrome 10-25, Safari 5.1-6 */
-                background: linear-gradient(to right,
-                        #f83600,
-                        #fe8c00);
-                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                background: #fc4a1a;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
                 color: white;
             }
@@ -47,18 +42,10 @@
             }
 
             .btn {
-                background: #0f2027;
-                /* fallback for old browsers */
-                background: -webkit-linear-gradient(to right,
-                        #2c5364,
-                        #203a43,
-                        #0f2027);
-                /* Chrome 10-25, Safari 5.1-6 */
-                background: linear-gradient(to right,
-                        #2c5364,
-                        #203a43,
-                        #0f2027);
-                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                background: #ff4b1f;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ff9068, #ff4b1f);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
             }
 
             input {
@@ -90,7 +77,7 @@
 
                     <div class="card shadow p-5">
                         <form method="post" onsubmit="return ValidationEvent()"
-                            action="/estcodeigniter/store/index.php/EmailController/send">
+                            action="/estcodeigniter/index.php/EmailController/send">
 
 
 
@@ -104,14 +91,15 @@
 
                                 <input type="text" id="name" onkeyup="namevalid()" name="firstname"
                                     placeholder="FirstName" class="form-control">
+                                    <?php echo form_error('firstname'); ?> 
                             </div>
 
                             <label>LastName</label>
-                            <div class="input-group mb-3">
+                            <div class="form-group mb-3">
 
                                 <input type="text" id="lname" name="lastname" placeholder="LastName"
                                     class="form-control" />
-
+                                    <?php echo form_error('lastname') ?>
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
@@ -119,6 +107,7 @@
                                     class="form-control">
                                 <input type="hidden" name="subject" placeholder="Enter Subject"
                                     value="OTP Verification">
+                                    <?php echo form_error('to'); ?> 
                             </div>
                             <div class="form-group">
                                 <label>Contact No</label>
@@ -126,6 +115,7 @@
                                 <!-- <input type="text" name="firstname"  /> -->
                                 <input type="text" id="contact" name="contact" placeholder="Contact No"
                                     class="form-control">
+                                    <?php echo form_error('contact') ?>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
@@ -133,6 +123,7 @@
                                 <!-- <input type="text" name="firstname"  /> -->
                                 <input type="password" id="pass" name="pass" placeholder="Password"
                                     class="form-control">
+                                    <?php echo form_error('pass'); ?> 
                             </div>
                             <div class="form-group">
                                 <label>Re-enter Password</label>
@@ -140,13 +131,14 @@
                                 <!-- <input type="text" name="firstname"  /> -->
                                 <input type="password" id="confirmpass" name="repass" placeholder="Confirm Password"
                                     class="form-control">
+                                    <?php  echo form_error('repass') ?>
                             </div>
                             <input type="submit" value="Registration"
                                 class="btn btn-block btn-secondary rounded-pill mt-3" />
 
 
                             <p class="mt-3 text-white">Already have an Account ? <a
-                                    href="/store/index.php/EmailController/login" class="text-white"> Login
+                                    href="estcodeiginiter/index.php/EmailController/login" class="text-white"> Login
                                     Here</a></p>
 
                         </form>
@@ -181,41 +173,41 @@
 
     function ValidationEvent() {
 
-        var name = document.getElementById("name").value;
-        var lname = document.getElementById("lname").value;
-        var mail = document.getElementById("mail").value;
-        var contact = document.getElementById("contact").value;
-        var pass = document.getElementById("pass").value;
-        var confirmpass = document.getElementById("confirmpass").value;
+        // var name = document.getElementById("name").value;
+        // var lname = document.getElementById("lname").value;
+        // var mail = document.getElementById("mail").value;
+        // var contact = document.getElementById("contact").value;
+        // var pass = document.getElementById("pass").value;
+        // var confirmpass = document.getElementById("confirmpass").value;
 
-        console.log(name);
-        console.log(lname);
-        console.log(mail);
-        console.log(contact);
-        console.log(pass);
-        console.log(confirmpass);
+        // console.log(name);
+        // console.log(lname);
+        // console.log(mail);
+        // console.log(contact);
+        // console.log(pass);
+        // console.log(confirmpass);
 
-        var emailReg = "/^([w-.]+@([w-]+.)+[w-]{2,4})?$/";
-        // Conditions
-        if (name != '' && mail != '') {
-            if (mail.match(emailReg)) {
+        // var emailReg = "/^([w-.]+@([w-]+.)+[w-]{2,4})?$/";
+        // // Conditions
+        // if (name != '' && mail != '') {
+        //     if (mail.match(emailReg)) {
 
-                if (contact.length == 10) {
-                    alert("All type of validation has done on OnSubmit event.");
-                    return true;
-                } else {
-                    alert("The Contact No. must be at least 10 digit long!");
-                    return false;
-                }
+        //         if (contact.length == 10) {
+        //             alert("All type of validation has done on OnSubmit event.");
+        //             return true;
+        //         } else {
+        //             alert("The Contact No. must be at least 10 digit long!");
+        //             return false;
+        //         }
 
-            } else {
-                alert("Invalid Email Address...!!!");
-                return false;
-            }
-        } else {
-            alert("All fields are required.....!");
-            return false;
-        }
+        //     } else {
+        //         alert("Invalid Email Address...!!!");
+        //         return false;
+        //     }
+        // } else {
+        //     alert("All fields are required.....!");
+        //     return false;
+        // }
 
 
 

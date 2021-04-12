@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
+    <head> 
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
 background: -webkit-linear-gradient(to right,  #f12711,#f5af19,);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #f12711, #f5af19); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 ">
-            <a class="navbar-brand" href="/estcodeigniter/store/index.php/">Welcome Home</a>
+            <a class="navbar-brand" href="/estcodeigniter/">Welcome Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,9 +50,9 @@ background: linear-gradient(to right, #f12711, #f5af19); /* W3C, IE 10+/ Edge, F
     
  ?>
                 <form class="form-inline mt-2 mt-md-0">
-                    <a class="nav-link" href="/estcodeigniter/store/index.php/EmailController/login">Login<span
+                    <a class="nav-link" href="/estcodeigniter/index.php/EmailController/login">Login<span
                             class="sr-only">(current)</span></a>
-                    <a class="nav-link" href="/estcodeigniter/store/index.php/EmailController/signup">Signup<span
+                    <a class="nav-link" href="/estcodeigniter/index.php/EmailController/signup">Signup<span
                             class="sr-only">(current)</span></a>
                     <?php } ?>
 
@@ -72,7 +72,7 @@ background: linear-gradient(to right, #f12711, #f5af19); /* W3C, IE 10+/ Edge, F
                         ?>
                     <!-- <a class="nav-link" href="/estcodeigniter/store/index.php/EmailController/dashboard">dashboard<span
                             class="sr-only">(current)</span></a> -->
-                    <a class="nav-link" href="/estcodeigniter/store/index.php/EmailController/logout">logout<span
+                    <a class="nav-link" href="/estcodeigniter/index.php/EmailController/logout">logout<span
                             class="sr-only">(current)</span></a>
                     <?php echo $this->session->e; } ?>
                 </form>

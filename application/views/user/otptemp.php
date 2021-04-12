@@ -83,7 +83,7 @@
                         <?php
                         //  echo $this->session->flashdata('sess')
                          ?>
-                        <form method="post" action="/estcodeigniter/store/index.php/EmailController/validateotp">
+                        <form method="post" action="/estcodeigniter/index.php/EmailController/validateotp">
 
                             <h3 class="text-center text-uppercase mb-4">Email Verification&nbsp;
                                 <?php
@@ -97,18 +97,19 @@
                             <div class="input-group mb-3">
 
                                 <input type="text" name="otp" placeholder="Enter Your OTP HERE " class="form-control" />
+                               
                             </div>
 
                             <span>
-                                <small style="color:red"><?php echo $this->session->flashdata('item'); ?></small>
-
+                                <small style="color:red"><?php echo $this->session->flashdata('item'); ?> <?php  echo form_error('otp') ?></small>
+                               
                             </span>
-
+                            
                             <input type="submit" value="OTP Verify"
                                 class="btn btn-block btn-secondary rounded-pill mt-3" />
 
 
-                            <p class="mt-3 text-white">Already have an Account ? <a href="/store/index.php/Hello/login"
+                            <p class="mt-3 text-white">Already have an Account ? <a href="/index.php/EmailController/login"
                                     class="text-white"> Login
                                     Here</a></p>
 
