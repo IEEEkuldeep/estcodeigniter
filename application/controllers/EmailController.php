@@ -433,12 +433,12 @@ if($this->input->post('pass')){
               if($data['user_data']==0){
   
            $this->session->sess_destroy();
-        $this->session->sess_destroy();
+             $this->session->sess_destroy();
                redirect(base_url());
       
               }
               else{
-  // $this->load->views('user/dashboard.php');
+            // $this->load->views('user/dashboard.php');
                        
                       if ($e||$p)
                       {
@@ -450,6 +450,76 @@ if($this->input->post('pass')){
               }
               
         }
+    }
+
+public function indexaj(){
+         // Load  the dashboard screen,if  the user is already login
+         if(isset($_SESSION['login']['idUser'])){
+            //  check the sessio of user if it is avaliable  it means user is already login
+            $this->load->view('user/dasboardaj');
+        }else{
+            // if  not  displat login windows
+            $this->load->view('user/loginaj');
+        }
+   
+}
+
+
+    public function dashboardaj(){
+    //     // Load  the dashboard screen,if  the user is already login
+        if(isset($_SESSION['login']['idUser'])){
+            $this->load->view('user/dasboardaj');
+        }
+    else{
+            $this->load->view('user/loginaj');
+        }
+    }
+
+    public function getlogin(){
+        // data tha we recive from ajax
+        $username = $this->input->post('UserName');
+        $Password = $this->input->post('Password');
+        if(!isset($username) || $username == ''  || $username == 'undefined'){
+            // if username that we received is invalid go here and return 2 as output
+             echo 2;
+             exit();
+        }
+        if(!isset($Password) || $Password == ''  || $Password =='undefined' ){
+            // if password that we received is invalid go here and return 3 as output
+            echo 3;
+            exit();
+        }
+        $this->form_validation->set_rules('UserName','UserName','required');
+        $this->form_validation->set_rules('Password','Password','required');
+
+        if($this->form_validation->run() == FALSE){
+            //if Both username and Password  that we received  is invalid go here and return 4 aqs output
+           echo 4;
+           exit();
+
+        }else{
+            // create object of  model MLoginphp file  under model folder
+
+        //    $Login = new MLogin();
+        //    validate ($username  $Password ) is the function in MLogin.php
+        $result = $Login->validate($username,$Password);
+        if(count(result)==1){
+            // if everything is fine then goes here , and return 1 as a output and set session
+
+            $data =array(
+                'idUser' => $result[0]->idUser,
+                'username' => $result[0]->username
+            );
+            $this->session->set_userdata('login',$data);
+            echo 1;
+        }else{
+            // if both username & Password that we received is invalid go here and return 5 as output
+            echo 5;
+        }
+
+
+        }
+
     }
 
 }

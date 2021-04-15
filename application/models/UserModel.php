@@ -138,6 +138,17 @@ $this->db->update('customer', $appointment);
 
             }
 
+            function validate ($user,$pass){
+               $this->db->select('*');
+               $this->db->from('customer');
+               $this->db->where('cust_email',$user);
+               $this->db->where('cust_password',$pass);
+               $query = $this->db->get();
+               $res = $query->result();
+               return $res;
+               
+            }
+
 
          }
 ?>
