@@ -5,574 +5,320 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About CI View</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-            </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-            </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-            </script>
-    </head>
-    <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-        }
-
-        .w-75 {
-            border-radius: 8px;
-        }
-
-        canvas {
-            display: block;
-            margin: auto;
-
-        }
-
-        .card-block .btn-outline-primary {
-            width: 100%;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            bottom: 0;
-            left: 0;
-            position: absolute;
-        }
-
-        .card {
-            margin: 20px 0;
-        }
-
-        /* Flip Cards CSS */
-        .card-container {
-            perspective: 700px;
-        }
-
-        .card-flip {
-            position: relative;
-            width: 100%;
-            transform-style: preserve-3d;
-            height: auto;
-            transition: all 0.5s ease-out;
-            background: white;
-            border: none;
-        }
-
-        .card-flip div {
-            backface-visibility: hidden;
-            transform-style: preserve-3d;
-            height: 100%;
-            width: 100%;
-            border: none;
-        }
-
-        .card-flip .front {
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-flip .back {
-            position: relative;
-            z-index: 0;
-            transform: rotateY(-180deg);
-        }
-
-        .card-container:hover .card-flip {
-            transform: rotateY(180deg);
-        }
-
-
-        #carousel .carousel-item.boat {
-            background-image: url("https://picsum.photos/1200/600/?image=1082");
-        }
-
-        #carousel .carousel-item.sea {
-            background-image: url("https://picsum.photos/1200/600/?image=1050");
-        }
-
-        #carousel .carousel-item.river {
-            background-image: url("https://picsum.photos/1200/600/?image=1015");
-        }
-
-        #carousel .carousel-item.talab {
-            background-image: url("https://picsum.photos/1200/600/?image=1016");
-        }
-
-        #carousel .carousel-item.nala {
-            background-image: url("https://picsum.photos/1200/600/?image=1001");
-        }
-
-        #carousel .carousel-item {
-            height: 70vh;
-            width: 100%;
-            min-height: 350px;
-            background: no-repeat center center scroll;
-            background-size: cover;
-        }
-
-        #carousel .carousel-inner .carousel-item {
-            transition: -webkit-transform 2s ease;
-            transition: transform 2s ease;
-            transition: transform 2s ease, -webkit-transform 2s ease;
-        }
-
-        #carousel .carousel-item .caption {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 40px;
-            color: white;
-            animation-duration: 1s;
-            animation-delay: 2s;
-        }
-
-        #carousel .caption h2 {
-            animation-duration: 1s;
-            animation-delay: 2s;
-        }
-
-        #carousel .caption p {
-            animation-duration: 1s;
-            animation-delay: 2.2s;
-        }
-
-        #carousel .caption a {
-            animation-duration: 1s;
-            animation-delay: 2.4s;
-        }
-
-        /* Button */
-        .delicious-btn {
-            display: inline-block;
-            min-width: 160px;
-            height: 60px;
-            color: #ffffff;
-            border: none;
-            border-left: 3px solid #1c8314;
-            border-radius: 0;
-            padding: 0 30px;
-            font-size: 16px;
-            line-height: 58px;
-            font-weight: 600;
-            -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
-            text-transform: capitalize;
-            background-color: #40ba37;
-        }
-
-        .delicious-btn.active,
-        .delicious-btn:hover,
-        .delicious-btn:focus {
-            font-size: 16px;
-            font-weight: 600;
-            color: #ffffff;
-            background-color: #1c8314;
-            border-color: #40ba37;
-        }
-
-    </style>
-
+        <title>h4ind-landing</title>
+         </head>
+   
     <body>
         <?php
 	include_once "header.php";
 ?>
-        <div class="">
-            <div id="carousel" class="carousel slide hero-slides" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li class="active" data-target="#carousel" data-slide-to="0"></li>
-                    <li data-target="#carousel" data-slide-to="1"></li>
-                    <li data-target="#carousel" data-slide-to="2"></li>
-                    <li data-target="#carousel" data-slide-to="3"></li>
-                    <li data-target="#carousel" data-slide-to="4"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active boat">
-                        <div class="container h-100 d-none d-md-block">
-                            <div class="row align-items-center h-100">
-                                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                                    <div class="caption animated fadeIn">
-                                        <h2 class="animated fadeInLeft">Boat Excursions</h2>
-                                        <p class="animated fadeInRight">Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing elit.
-                                            Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget
-                                            dui tristique,
-                                            ac posuere arcu varius.</p>
-                                        <a class="animated fadeInUp btn delicious-btn" href="#">Learn more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item sea">
-                        <div class="container h-100 d-none d-md-block">
-                            <div class="row align-items-center h-100">
-                                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                                    <div class="caption animated fadeIn">
-                                        <h2 class="animated fadeInLeft">Discover the canyon by the sea</h2>
-                                        <p class="animated fadeInRight">Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing elit.
-                                            Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget
-                                            dui tristique,
-                                            ac posuere arcu varius.</p>
-                                        <a class="animated fadeInUp btn delicious-btn" href="#">Learn more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item river">
-                        <div class="container h-100 d-none d-md-block">
-                            <div class="row align-items-center h-100">
-                                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                                    <div class="caption animated fadeIn">
-                                        <h2 class="animated fadeInLeft">Explore the river valley</h2>
-                                        <p class="animated fadeInRight">Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing elit.
-                                            Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget
-                                            dui tristique,
-                                            ac posuere arcu varius.</p>
-                                        <a class="animated fadeInUp btn delicious-btn" href="#">Learn more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item talab">
-                        <div class="container h-100 d-none d-md-block">
-                            <div class="row align-items-center h-100">
-                                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                                    <div class="caption animated fadeIn">
-                                        <h2 class="animated fadeInLeft">Explore the river valley</h2>
-                                        <p class="animated fadeInRight">Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing elit.
-                                            Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget
-                                            dui tristique,
-                                            ac posuere arcu varius.</p>
-                                        <a class="animated fadeInUp btn delicious-btn" href="#">Learn more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item nala">
-                        <div class="container h-100 d-none d-md-block">
-                            <div class="row align-items-center h-100">
-                                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                                    <div class="caption animated fadeIn">
-                                        <h2 class="animated fadeInLeft">Explore the river valley</h2>
-                                        <p class="animated fadeInRight">Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing elit.
-                                            Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget
-                                            dui tristique,
-                                            ac posuere arcu varius.</p>
-                                        <a class="animated fadeInUp btn delicious-btn" href="#">Learn more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+       
+       <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://www.fraserinstitute.org/sites/default/files/styles/large/public/understanding-universal-health-care-reform-options-privat-insurance.jpg?itok=VPI5FEbo" class="d-block w-100" alt="thirdimg">
+        
+        <div class="carousel-caption d-none d-md-block">
 
+          <h3>Help  &amp; Care </h3>
+          <p><q>Every patient has a unique visit and treatment program specific to his/her condition.</q></p>
         </div>
-        <div class="container">
-        <div id="mydivs3"  class="alert alert-success">   
-                    
-                    <?php echo $this->session->flashdata('passwordchange'); ?>
+      </div>
+      <div class="carousel-item">
+        <img src="https://cdn.cnn.com/cnnnext/dam/assets/200514180101-healthcare-workers-super-169.jpg" class="d-block w-100" alt="secondimg">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Health Care </h3>
+          <p><q>Request an appointment at H4INDIA in.</q></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/WORKPLACEV9CMS/2bgqjhmw_0iifqf_p8twtq.jpg" class="d-block w-100" alt="thirdimg">
+        
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Human &amp; Health </h3>
+          <p><q>Patients are often unaware of their rights, including the right to information on their condition and the right to access their medical records. .</q></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img   src="https://1gew6o3qn6vx9kp3s42ge0y1-wpengine.netdna-ssl.com/wp-content/uploads/prod/2020/03/HIMSS-OMB-Blog_Updated.png"  class="d-block w-100" alt="firstimg">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Health &amp; Hospitility </h3>
+          <p><q>Health & Hospitality assists you and puts you into relationship with your specialist.</q></p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+<div class="container-fluid">
+ 
+  <div class="row no-gutter">
+    <div class=" col-md-6 col-lg-12 col-sm-12">
+      <div class="card mb-3 shadow-sm p-3 mb-5 bg-body rounded">
+        <div class="row g-0 ">
+          <div class="col-md-5  p-3  ">
+          <img src="https://miro.medium.com/max/1000/1*drQD12RKEWESpqRP7ViODQ.jpeg" class="img-thumbnail float-start" alt="Project-1" >
+          </div>
+          <div class="col-md-7">
+            <div class="card-body justify-content-center">
+              <h3 class="card-title">Public healthcare
+              </h3>
+              <p class="card-text">The healthcare system in Italy is a regionally based national health service known as Servizio Sanitario Nazionale (SSN). It provides universal coverage to citizens and residents, with public healthcare largely free of charge. Treatments which are covered by the public system and a small co-payment include tests, medications, surgeries during hospitalisation, family doctor visits and medical assistance provided by paediatricians and other specialists. Furthermore, medication, out-patient treatments, and dental treatments are also available. However, public healthcare facilities in Italy vary in terms of quality depending on the region.
+
+                .</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+
     
+  </div>
+  <div class="row no-gutter">
+    <div class=" col-md-6 col-lg-12 col-sm-12">
+      <div class="card mb-3 shadow-sm p-3 mb-5 bg-body rounded">
+        <div class="row g-0 ">
+         
+          <div class="col-md-7">
+            <div class="card-body justify-content-center">
+              <h3 class="card-title">EMERGENCY RESPONSE
+              </h3>
+              <p class="card-text"> People with disabilities in developing countries are amongst the most vulnerable and marginalised, lacking access to health care, rehabilitation, education and other critical services.  We provide a range of life-transforming  We work in fragile countries where war, political instability and natural disasters often threaten the most vulnerable.  Whether being at the forefront of  earthquake response for people with Spinal Cord Injuries, providing  emergencies..
+                .</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+          <div class="col-md-5  p-3 mb-5 ">
+            <img src="https://images.squarespace-cdn.com/content/v1/51b6529ce4b0c042edeedf2d/1551119392909-0FGK7993SQTCUED74U32/ke17ZwdGBToddI8pDm48kIcdTYxh5a0geLlYKN11Olh7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1Ucp5CxczMxkNODU6E2tIVzGXW1WaegKOvbf_uoa8qPu7J14ubcdsY0uKwK2_j53OFw/image-asset.jpeg?format=500w" class="img-thumbnail float-end" alt="Project-1" width="600px" height="600px">
+            </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  <section class="banner pt-5 pb-5">
+    <div class="container">
+      <h3>we have a plan for you.</h3>
+
+      <p>What’s your plan? Are you traveling alone or with your family? Will you be away for your job, studies or just for the pleasure of discovering new things? Short term trip or long term project for your life? Foyer Global Health offers a comprehensive range of international health insurance for expats that will suit your needs. <br/> </p>
+    </div>
+  </section>
+  
+  <div class="abt" id="about">
+  <div class="jumbotron pt-5 pb-5 ">
+  
+      <h3>Quick and efficient services anywhere in the INDIA</h3>
+      </hr>
+      
+        <div class="row mt-5">
+          
+          <div class="col-sm">
+            <div class="text-center">
+
+              <img  class="rounded-circle w-50 mx-auto d-block"  src="https://specials-images.forbesimg.com/imageserve/5ea2535c165a170006a5b6e5/960x0.jpg?fit=scale" alt="">
+            </div>
+            <h4> Digital
+              solutions </h4>
+            <p><q>MyHealth Digital Services
+              - to give you easy and convenient access to your cover..</q></p>
+            
+          </div>
+          <div class="col-sm">
+            <div class="text-center">
+              <img  class="rounded-circle w-75 mx-auto d-block"  src="https://static.timesofisrael.com/www/uploads/2020/08/iStock-1214067077.jpg" alt="">
+            </div>
+            <h4> Be well </h4>
+            <p><q>Access to health and wellbeing benefits, including digital health apps -  helping you to stay healthy</q></p>
+          </div>
+         
+          <div class="col-sm">
+            <div class="text-center">
+              <img  class="rounded-circle w-75 mx-auto d-block"  src="https://www.dhyanhealthcare.com/imageuploads/covered/2019/05/27/ambulance.jpg" alt="">
+            </div>
+            <h4> Quick and
+              efficient </h4>
+            <p><q>Fully completed medical claims processed within 48 hours.</q></p>
+          </div>
+          <div class="col-sm">
+            <div class="text-center">
+              <img  class="rounded-circle w-50 mx-auto d-block"  src="https://www.weverfinancial.com/sites/weverfinancial.com/files/styles/medium/public/protecting-your-family.jpg?itok=Te8RMe5l" alt="">
+            </div>
+          
+            <h4>Protecting your family</h4>
+            <p><q>Family friendly features and options, such as first aid course, child hearing exam and more.</q></p>
+            
+          </div>
+         
+        </div>
+      
+      <!-- <p>From a responsive Front End design to a Dynamic Backend handling,<br/> we provide you with your dream site and increase your chance of success.</p>
+      
+    <a href="#portfolio" class="btn btn-default">Get Started!</a> -->
+  
+  </div>
+  </div>
+  <!--End ofAbout-->
+
+
+<div class="abt" id="about">
+  <div class="jumbotron pt-5 pb-5 ">
+  
+      <h3>We're here to help</h3>
+      <P>We'll help you manage your international healthcare needs with support services designed to make life simpler, easier and safer.</P>
+      </hr>
+      
+        <div class="row mt-5">
+          
+          <div class="col-sm">
+            <div class="text-center">
+              <i class="fa fa-calculator fa-fw fa-5x"></i>  
+              <!-- <img  class="rounded-circle w-50 mx-auto d-block"  src="https://specials-images.forbesimg.com/imageserve/5ea2535c165a170006a5b6e5/960x0.jpg?fit=scale" alt=""> -->
+            </div>
+            <h4> MyHealth digital services
+            </h4>
+            <p><q>Manage your healthcare anytime, anywhere. Our popular MyHealth digital supports come highly rated by our members.</q></p>
+            
+          </div>
+          <div class="col-sm">
+            <div class="text-center">
+              <i class="fa fa-heartbeat fa-fw fa-5x"></i>
+              <!-- <img  class="rounded-circle w-75 mx-auto d-block"  src="https://static.timesofisrael.com/www/uploads/2020/08/iStock-1214067077.jpg" alt=""> -->
+            </div>
+            <h4> Helpline & emergency assistance </h4>
+            <p><q>Our multilingual care team are available 24/7 to answer general queries and support you during emergencies.</q></p>
+          </div>
+         
+          <div class="col-sm">
+            <div class="text-center">
+              <i class="fa fa-briefcase fa-fw fa-5x"></i>
+              <!-- <img  class="rounded-circle w-75 mx-auto d-block"  src="https://www.dhyanhealthcare.com/imageuploads/covered/2019/05/27/ambulance.jpg" alt=""> -->
+            </div>
+            <h4> Medical advice service</h4>
+            <p><q>Our Medi24 service provides 24/7 access to medical professionals who can advise you on all sorts of medical topics.</q></p>
+          </div>
+         
+         
+        </div>
+      
+      <!-- <p>From a responsive Front End design to a Dynamic Backend handling,<br/> we provide you with your dream site and increase your chance of success.</p>
+      
+    <a href="#portfolio" class="btn btn-default">Get Started!</a> -->
+  
+  </div>
+  </div>
+  <!--End ofAbout-->
+  
 </div>
+  
+</div>
+
+
+
+ 
+  <!--PortFolio-->
+<!--   
+  <div class="no-padding text-center" id="portfolio">
+   <div class="container">
+     <h1>Portfolio</h1>
+      <hr></hr>
+    </div>
+   
+    <div class="container-fluid">
+      <div class="row no-gutter">
+        <div class=" col-6 col-lg-4 col-sm-6">
+          <img src="http://4.bp.blogspot.com/-bahoT9-tRn4/UYQmxSCtFdI/AAAAAAAAA6s/QQzILTQba18/s1600/art-camera-cool-photography-toy-Favim.com-446299.jpg" class="img-thumbnail" alt="Project-1" width="100%" height="auto">
+        </div>
+        <div class="col-6 col-lg-4 col-sm-6">
+           <img src="http://4.bp.blogspot.com/-bahoT9-tRn4/UYQmxSCtFdI/AAAAAAAAA6s/QQzILTQba18/s1600/art-camera-cool-photography-toy-Favim.com-446299.jpg" class="img-thumbnail" alt="Project-1" width="100%" height="auto">
+        </div>
+        <div class="col-6 col-lg-4 col-sm-6">
+           <img src="http://4.bp.blogspot.com/-bahoT9-tRn4/UYQmxSCtFdI/AAAAAAAAA6s/QQzILTQba18/s1600/art-camera-cool-photography-toy-Favim.com-446299.jpg" class="img-thumbnail" alt="Project-1" width="100%" height="auto">
+        </div>
+      </div>
+      
+      <div class="row no-gutter">
+        <div class=" col-6 col-lg-4 col-sm-6">
+          <img src="http://s9.favim.com/orig/130725/photography-pocket-watches-v-vintage-Favim.com-801353.jpg" alt="Project-1" width="100%" height="auto">
+        </div>
+        <div class="col-6 col-lg-4 col-sm-6">
+           <img src="http://s9.favim.com/orig/130725/photography-pocket-watches-v-vintage-Favim.com-801353.jpg" class="img-thumbnail" alt="Project-1" width="100%" height="auto">
+        </div>
+        <div class="col-6 col-lg-4 col-sm-6">
+           <img src="http://s9.favim.com/orig/130725/photography-pocket-watches-v-vintage-Favim.com-801353.jpg" alt="Project-1" width="100%" height="auto">
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!--End of Portfolio-->
+<!--   
+  <div class="contact" id="contact">
+    <div class="bg-dark">
+  <div class="container" >
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h1>Let's Get In Touch!</h2>
+        <hr class="primary"></hr>
+      <p class="my-font">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+      </div>
+     <div class="padded">
+      <div class="col-lg-4 col-lg-offset-2 text-center">
+      <i class="fa fa-phone fa-3x sr-contact"></i>
+      <p>9999999999</p>
+      </div>
+      
+      <div class="col-lg-4 text-center">
+         <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+         <p><a href="mailto:your-email@your-domain.com">gfgfgfg@gmail.com</a></p>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div> -->
+  <!--End Of Contact-->
+<!--   
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+      <div class="col-sm-6 text-center">
+        <h3>About this Page</h3>
+      
+      </div>
+        <div class="col-sm-6 text-center">
+          <h3>Around The Web</h3>
+          <ul class="list-icon">
+            <li><a type="button" href="https://www.facebook.com/manas.yadav.71"><i class="fa fa-facebook-official"></i></a>
+              <li><a type="button" href="https://github.com/manas2297"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+                <li><a type="button" href=""><i class="fa fa-google-plus-official" aria-hidden="true"></i></a>
+          </ul>
+        </div> 
+      </div>
+    </div>
     
-            <canvas id="myCanvas"></canvas>
-        </div>
-        <!-- Visit https://codepen.io/nicolaskadis/full/brQEOd/ for the latest, no js version! -->
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4 card-container">
-                    <div class="card card-flip">
-                        <div class="front card-block">
-                            <!-- To add FontAwesome Icons use Unicode characters and to set size use font-size instead of fa-*x because when calculating the height (see js), the size of the icon is not calculated if using classes -->
-
-
-
-
-                            <img class="w-75"
-                                src="https://thumbs.dreamstime.com/b/happy-female-startup-employees-office-doorway-portrait-standing-laptop-smiling-executive-94522131.jpg">
-
-
-
-                            <h6 class="card-subtitle text-muted">Front Sub-title</h6>
-                            <p class="card-text">Front Text</p>
-                        </div>
-                        <div class="back card-block">
-                            <p>
-                                Some example text<br> to
-                                <br> increase
-                                <br> card
-                                <br> height
-                                <br> to
-                                <br> something
-                                <br> long
-                            </p>
-                            <a href="#" class="btn btn-outline-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 card-container">
-                    <div class="card card-flip">
-                        <div class="front card-block">
-
-
-                            <img class="w-75"
-                                src="https://images.unsplash.com/photo-1534109165916-7878ad66d5eb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8Y2VsZWJyaXR5JTIwZ2lybHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80">
-                            <h6 class="card-subtitle text-muted">Front Sub-title</h6>
-                            <p class="card-text">Front Text</p>
-                        </div>
-                        <div class="back card-block">
-                            <p>Some example short text</p>
-                            <a href="#" class="btn btn-outline-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 card-container">
-                    <div class="card card-flip">
-                        <div class="front card-block">
-
-
-                            <img class="w-75"
-                                src="https://i.pinimg.com/originals/41/d0/5e/41d05edc5a5a191268ecde450da69dab.jpg">
-                            <h6 class="card-subtitle text-muted">Front Sub-title</h6>
-                            <p class="card-text">Front Text</p>
-                        </div>
-                        <div class="back card-block">
-                            <p>Some example text</p>
-                            <a href="#" class="btn btn-outline-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 card-container">
-                    <div class="card card-flip">
-                        <div class="front card-block">
-
-
-                            <img class="w-75"
-                                src="https://i.pinimg.com/originals/e3/b4/ec/e3b4ec716a6c15dc094aee32c41469dd.jpg">
-                            <h6 class="card-subtitle text-muted">Front Sub-title</h6>
-                            <p class="card-text">Front Text</p>
-                        </div>
-                        <div class="back card-block">
-                            <p>
-                                Some example text<br> to
-                                <br> increase
-                                <br> card
-                                <br> height
-                                <br> to
-                                <br> something
-                                <br> long
-                            </p>
-                            <a href="#" class="btn btn-outline-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 card-container">
-                    <div class="card card-flip">
-                        <div class="front card-block">
-
-
-                            <img class="w-75"
-                                src="https://i.pinimg.com/originals/cb/fe/23/cbfe2397906886b4da3195d274d05537.jpg">
-                            <h6 class="card-subtitle text-muted">Front Sub-title</h6>
-                            <p class="card-text">Front Text</p>
-                        </div>
-                        <div class="back card-block">
-                            <p>Some example short text</p>
-                            <a href="#" class="btn btn-outline-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 card-container">
-                    <div class="card card-flip">
-                        <div class="front card-block">
-
-
-                            <img class="w-75"
-                                src="https://c8.alamy.com/comp/D5AKXW/vertical-shot-of-a-female-boss-and-her-pretty-employee-D5AKXW.jpg">
-                            <h6 class="card-subtitle text-muted">Front Sub-title</h6>
-                            <p class="card-text">Front Text</p>
-                        </div>
-                        <div class="back card-block">
-                            <p>Some example text</p>
-                            <a href="#" class="btn btn-outline-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  </footer>
+   -->
+  
         <?php include_once "footer.php"; ?>
 
+        
 </html>
-<script>
-
-
-    
-  setTimeout(function() {
-            $('#mydivs3').hide('fast');
-        }, 3000);
-
-    $(document).ready(function () {
-        var front = document.getElementsByClassName("front");
-        var back = document.getElementsByClassName("back");
-
-        var highest = 0;
-        var absoluteSide = "";
-
-        for (var i = 0; i < front.length; i++) {
-            if (front[i].offsetHeight > back[i].offsetHeight) {
-                if (front[i].offsetHeight > highest) {
-                    highest = front[i].offsetHeight;
-                    absoluteSide = ".front";
-                }
-            } else if (back[i].offsetHeight > highest) {
-                highest = back[i].offsetHeight;
-                absoluteSide = ".back";
-            }
-        }
-        $(".front").css("height", highest);
-        $(".back").css("height", highest);
-        $(absoluteSide).css("position", "absolute");
-    });
-
-
-
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    var mask;
-
-    var pointCount = 500;
-    var str = "Welcome.";
-    var fontStr = "bold 128pt Helvetica Neue, Helvetica, Arial, sans-serif";
-
-    ctx.font = fontStr;
-    ctx.textAlign = "center";
-    c.width = ctx.measureText(str).width;
-    c.height = 128; // Set to font size
-
-    var whitePixels = [];
-    var points = [];
-    var point = function (x, y, vx, vy) {
-        this.x = x;
-        this.y = y;
-        this.vx = vx || 1;
-        this.vy = vy || 1;
-    }
-    point.prototype.update = function () {
-        ctx.beginPath();
-        ctx.fillStyle = "#95a5a6";
-        ctx.arc(this.x, this.y, 1, 0, 2 * Math.PI);
-        ctx.fill();
-        ctx.closePath();
-
-        // Change direction if running into black pixel
-        if (this.x + this.vx >= c.width || this.x + this.vx < 0 || mask.data[coordsToI(this.x + this.vx, this.y, mask.width)] != 255) {
-            this.vx *= -1;
-            this.x += this.vx * 2;
-        }
-        if (this.y + this.vy >= c.height || this.y + this.vy < 0 || mask.data[coordsToI(this.x, this.y + this.vy, mask.width)] != 255) {
-            this.vy *= -1;
-            this.y += this.vy * 2;
-        }
-
-        for (var k = 0, m = points.length; k < m; k++) {
-            if (points[k] === this) continue;
-
-            var d = Math.sqrt(Math.pow(this.x - points[k].x, 2) + Math.pow(this.y - points[k].y, 2));
-            if (d < 5) {
-                ctx.lineWidth = .2;
-                ctx.beginPath();
-                ctx.moveTo(this.x, this.y);
-                ctx.lineTo(points[k].x, points[k].y);
-                ctx.stroke();
-            }
-            if (d < 20) {
-                ctx.lineWidth = .1;
-                ctx.beginPath();
-                ctx.moveTo(this.x, this.y);
-                ctx.lineTo(points[k].x, points[k].y);
-                ctx.stroke();
-            }
-        }
-
-        this.x += this.vx;
-        this.y += this.vy;
-    }
-
-    function loop() {
-        ctx.clearRect(0, 0, c.width, c.height);
-        for (var k = 0, m = points.length; k < m; k++) {
-            points[k].update();
-        }
-    }
-
-    function init() {
-        // Draw text
-        ctx.beginPath();
-        ctx.fillStyle = "#000";
-        ctx.rect(0, 0, c.width, c.height);
-        ctx.fill();
-        ctx.font = fontStr;
-        ctx.textAlign = "left";
-        ctx.fillStyle = "#fff";
-        ctx.fillText(str, 0, c.height / 2 + (c.height / 2));
-        ctx.closePath();
-
-        // Save mask
-        mask = ctx.getImageData(0, 0, c.width, c.height);
-
-        // Draw background
-        ctx.clearRect(0, 0, c.width, c.height);
-
-        // Save all white pixels in an array
-        for (var i = 0; i < mask.data.length; i += 4) {
-            if (mask.data[i] == 255 && mask.data[i + 1] == 255 && mask.data[i + 2] == 255 && mask.data[i + 3] == 255) {
-                whitePixels.push([iToX(i, mask.width), iToY(i, mask.width)]);
-            }
-        }
-
-        for (var k = 0; k < pointCount; k++) {
-            addPoint();
-        }
-    }
-
-    function addPoint() {
-        var spawn = whitePixels[Math.floor(Math.random() * whitePixels.length)];
-
-        var p = new point(spawn[0], spawn[1], Math.floor(Math.random() * 2 - 1), Math.floor(Math.random() * 2 - 1));
-        points.push(p);
-    }
-
-    function iToX(i, w) {
-        return ((i % (4 * w)) / 4);
-    }
-    function iToY(i, w) {
-        return (Math.floor(i / (4 * w)));
-    }
-    function coordsToI(x, y, w) {
-        return ((mask.width * y) + x) * 4;
-
-    }
-
-    setInterval(loop, 50);
-    init();
-
-</script>

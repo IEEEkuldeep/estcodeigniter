@@ -1,102 +1,138 @@
 <!DOCTYPE html>
+<?php
+// include_once "application/views/landing/header.php"; 
+ ?>
 <html>
-
     <head>
         <title>Login form</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">        
+        <link rel="stylesheet" href="../assests/style.css">
+        <link rel="stylesheet" href="../assests/signin.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512 -->
         <style>
-        main .card {
-            background-color: #77333d00;
-    color: #f5f5f5;
-
-        }
-
-        body {
-            background: #fe8c00;
-            /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right,
-                    #f83600,
-                    #fe8c00);
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right,
-                    #f83600,
-                    #fe8c00);
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-            color: white;
-        }
-
-        h3 {
-            font-family: Times New Roman;
-            font-weight: bold;
-        }
-
-        hr {
-            border-bottom: solid white 1px;
-        }
-
-        .btn {
-            background: #ff4b1f;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #ff9068, #ff4b1f);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-        }
-
-        input {
-            background-color: #3475 !important;
-            color: white !important;
-        }
-
-        ::placeholder {
-            color: white !important;
-        }
-        .error{
-            color:#ff190993;
-            font-weight: 600;
-        }
-
+            .nav-link.align-items-center.d-flex {
+    margin-left: 12px;
+}
         </style>
-    </head>
+      </head>
 
     <body>
-        <!-- <form>
-            <table width="600" align="center" border="1" cellspacing="5" cellpadding="5">
-                <tr>
-                    <td colspan="2"><?php echo @$error; ?></td>
-                </tr>
-                <tr>
-                    <td>Enter Your Email </td>
-                    <td><input type="text" name="email" /></td>
-                </tr>
+    <nav class="navbar sticky-top navbar-expand-md navbar-light">
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#">TRANSPARENT</a> -->
+      <a href="/h4ind"><img class="w-25" src="../assests/images/H4INDIA-Logo.png"  alt=""></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTransparentContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbarTransparentContent">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-1">
+            <a class="nav-link align-items-center d-flex" href="/h4ind/Common/signup ">
+              <i class="fa fa-stethoscope fa-fw fa-2x mr-2"></i> SIGNUP/SIGNIN AS DOCTOR</a>
+            
+          </li>
+          <li class="nav-item mx-1">
+            <a class="nav-link align-items-center d-flex" href="/h4ind/Common/login">
+              <i class="fa fa-ambulance fa-fw fa-2x mr-2"></i>SIGNUP/SIGNIN AS PATIENT</a>
+              
+          </li>
+<!--           
+          <li class="nav-item mx-1">
+            <a class="nav-link align-items-center d-flex" href="#">
+              <i class="fa fa-stethoscope fa-fw fa-2x mr-2"></i>SIGNIN AS DOCTOR</a>
+          </li>
+          <li class="nav-item mx-1">
+            <a class="nav-link align-items-center d-flex" href="#">
 
-                <tr>
-                    <td width="230">Enter Your Password </td>
-                    <td width="329"><input type="password" name="password" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" name="login" value="Login" />
-                    </td>
-                </tr>
-            </table>
+              <i class="fa fa-ambulance fa-fw fa-2x mr-2"></i>SIGNIN AS PATIENT</a>
+          </li>
+          -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+ 
 
-        </form> -->
-        <?php
-     include_once "application/views/landing/header.php"; 
-     ?>
+
+
+<div class="container" id="container">
+   
+   <div class="form-container sign-up-container">
+     <form>
+       <h1> Patient's Sign Up</h1>
+       <!-- <div class="social-container">
+         <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+         <a href="#" class="social"><i class="fab fa-google"></i></a>
+         <a href="#" class="social"><i class="fab fa-tiktok"></i></a>
+       </div> -->
+       <span>or use your email for registration</span>
+       <!-- <input type="text" placeholder="Name" /> -->
+       <div >
+       <input  type="email" placeholder="Email" />
+       </div>
+       
+       <div >
+       <input  type="password" placeholder="Password" />    
+       </div>
+       
+       
+       <div>
+       <input type="password" placeholder="Confirm-Password" />    
+       </div>
+       <div >
+        <input  type="text" placeholder="OTP" />
+       </div>
+       
+
+       <button onclick="return false;">Sign Up</button>
+     </form>
+   </div>
+   <div class="form-container sign-in-container">
+     <form>
+       <h1>Patients's Sign In</h1>
+       <!-- <div class="social-container">
+         <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+         <a href="#" class="social"><i class="fab fa-google"></i></a>
+         <a href="#" class="social"><i class="fab fa-tiktok"></i></a>
+       </div> -->
+       <span>or use your account</span>
+       <input type="email" placeholder="Email" />
+       
+       <div class="input-group">
+        <!-- <input type="password" name="password" /> -->
+        <input type="password" name="pass1" id="password"
+            placeholder="Enter Password" aria-label="Enter Password"
+            aria-describedby="basic-addon2">
+       
+    </div>
+    <div class="passicon float-end">
+        <span class="input-group-text" id="basic-addon2"><i class="fa fa-eye"
+                aria-hidden="true"></i>
+        </span>
+    </div>
+    
+       <a href="#">Forgot your password?</a>
+       <button onclick="return false;">Sign In</button>
+     </form>
+   </div>
+   <div class="overlay-container">
+     <div class="overlay">
+       <div class="overlay-panel overlay-left">
+         <h1>Welcome Back!</h1>
+         <p>Please login with your personal info</p>
+         <button class="ghost" id="signIn">Sign In</button>
+       </div>
+       <div class="overlay-panel overlay-right">
+         <h1>Hello, Patient's!</h1>
+         <p>Enter your personal details and start your journey with us</p>
+         <button class="ghost" id="signUp">Sign Up</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
         <main class="container my-5">
             <div class="row">
                 <section class="col-md-6 my-5 offset-md-3">
@@ -109,7 +145,6 @@ background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, F
                             </h3>
                             <h3 style="color:#2EB62C">
                                 <?php echo $this->session->flashdata('rightotp'); ?>
-
 
                             </h3>
                             <h3 style="color:#F44336">
@@ -141,7 +176,7 @@ background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, F
                             <label for="Password">Password</label>
                             <div class="input-group mb-3">
                                 <!-- <input type="password" name="password" /> -->
-                                <input type="password" name="pass1" id="password" class="form-control"
+                                <!-- <input type="password" name="pass1" id="password" class="form-control"
                                     placeholder="Enter Password" aria-label="Enter Password"
                                     aria-describedby="basic-addon2">
                                 <div class="input-group-append">
@@ -149,7 +184,7 @@ background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, F
                                             aria-hidden="true"></i>
                                     </span>
                                 </div>
-                                
+                                 -->
                             </div>
                             <?php echo form_error('pass1'); ?> 
                             <input type="submit" name="login" value="Login"
@@ -166,14 +201,29 @@ background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, F
                 </section>
             </div>
         </main>
-        <?php
-     include_once "application/views/landing/footer.php"; 
-     ?>
+
+        
+        
     </body>
 
 </html>
-
+<script type="text/javascript" src="../assests/script/signin.js"></script>
 <script>
+  
+  $(document).ready(function(){
+$('.pass_show').append('<span class="ptxt">Show</span>');  
+});
+  
+
+$(document).on('click','.pass_show .ptxt', function(){ 
+
+$(this).text($(this).text() == "Show" ? "Hide" : "Show"); 
+
+$(this).prev().attr('type', function(index, attr){return attr == 'password' ? 'text' : 'password'; }); 
+
+});  
+
+
 $(document).ready(function() {
     $("#basic-addon2").click(function() {
         let passwordField = $("#password");
@@ -188,4 +238,9 @@ $(document).ready(function() {
         }
     });
 });
+
+
 </script>
+<?php
+     include_once "application/views/landing/footer.php"; 
+     ?>

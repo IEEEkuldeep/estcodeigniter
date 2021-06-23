@@ -1,161 +1,275 @@
 <!DOCTYPE html>
 <html>
+  <?php
+	// include_once "application/views/landing/header.php";
+?>
 
     <head>
         <title>Registration form</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-            </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-            </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-            </script>
-        <style>
-            main .card {
-
-                background-color: #77333d00;
-    color: #f5f5f5;
-            }
-
-            body {
-                background: #fc4a1a;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-                color: white;
-            }
-
-            h3 {
-                font-family: Times New Roman;
-                font-weight: bold;
-            }
-
-            hr {
-                border-bottom: solid white 1px;
-            }
-
-            .btn {
-                background: #ff4b1f;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #ff9068, #ff4b1f);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-            }
-
-            input {
-                background-color: #3475 !important;
-                color: white !important;
-            }
-
-            ::placeholder {
-                color: white !important;
-            }
-
-            .error {
-                color: red;
-            }
-
-        </style>
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">        
+        <link rel="stylesheet" href="../assests/style.css">
+        <link rel="stylesheet" href="../assests/signin.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512 -->
     </head>
-
-    <?php
-	include_once "application/views/landing/header.php";
-?>
-
+<style>
+    .nav-link.align-items-center.d-flex {
+    margin-left: 12px;
+}
+</style>
+  
     <body>
 
-        <main class="container my-5">
-            <div class="row">
-                <section class="col-md-6 my-5 offset-md-3">
-
-                    <div class="card shadow p-5">
-                        <form method="post" onsubmit="return ValidationEvent()"
-                            action="/estcodeigniter/index.php/EmailController/send">
-
-
-
-                            <h3 class="text-center text-uppercase mb-4">Registration&nbsp;
-                                <?php echo @$error; ?>
-                            </h3>
-                            <hr>
-
-                            <div class="form-group">
-                                <label>FirstName</label>
-
-                                <input type="text" id="name" onkeyup="namevalid()" name="firstname"
-                                    placeholder="FirstName" class="form-control">
-                                    <?php echo form_error('firstname'); ?> 
-                            </div>
-
-                            <label>LastName</label>
-                            <div class="form-group mb-3">
-
-                                <input type="text" id="lname" name="lastname" placeholder="LastName"
-                                    class="form-control" />
-                                    <?php echo form_error('lastname') ?>
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="mail" name="to" placeholder="Enter Your Email here .."
-                                    class="form-control">
-                                <input type="hidden" name="subject" placeholder="Enter Subject"
-                                    value="OTP Verification">
-                                    <?php echo form_error('to'); ?> 
-                            </div>
-                            <div class="form-group">
-                                <label>Contact No</label>
-                                <!-- <input type="text" name="email" /> -->
-                                <!-- <input type="text" name="firstname"  /> -->
-                                <input type="text" id="contact" name="contact" placeholder="Contact No"
-                                    class="form-control">
-                                    <?php echo form_error('contact') ?>
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <!-- <input type="text" name="email" /> -->
-                                <!-- <input type="text" name="firstname"  /> -->
-                                <input type="password" id="pass" name="pass" placeholder="Password"
-                                    class="form-control">
-                                    <?php echo form_error('pass'); ?> 
-                            </div>
-                            <div class="form-group">
-                                <label>Re-enter Password</label>
-                                <!-- <input type="text" name="email" /> -->
-                                <!-- <input type="text" name="firstname"  /> -->
-                                <input type="password" id="confirmpass" name="repass" placeholder="Confirm Password"
-                                    class="form-control">
-                                    <?php  echo form_error('repass') ?>
-                            </div>
-                            <input type="submit" value="Registration"
-                                class="btn btn-block btn-secondary rounded-pill mt-3" />
-
-
-                            <p class="mt-3 text-white">Already have an Account ? <a
-                                    href="estcodeiginiter/index.php/EmailController/login" class="text-white"> Login
-                                    Here</a></p>
-
-                        </form>
-                    </div>
-                </section>
+        <nav class="navbar sticky-top navbar-expand-md navbar-light d-flex>
+            <div class="container-fluid">
+              <!-- <a class="navbar-brand" href="#">TRANSPARENT</a> -->
+              <a href="/h4ind"><img class="w-25" src="../assests/images/H4INDIA-Logo.png"  alt=""></a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTransparentContent">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse text-center justify-content-end" id="navbarTransparentContent">
+                <ul class="navbar-nav">
+                  <li class="nav-item mx-1">
+                    <a class="nav-link align-items-center d-flex" href="/h4ind/Common/signup ">
+                      <i class="fa fa-stethoscope fa-fw fa-2x mr-2"></i> SIGNUP/SIGNIN AS DOCTOR</a>
+                    
+                  </li>
+                  <li class="nav-item mx-1">
+                    <a class="nav-link align-items-center d-flex" href="/h4ind/Common/patient">
+                      <i class="fa fa-ambulance fa-fw fa-2x mr-2"></i>SIGNUP/SIGNIN AS PATIENT</a>
+                      
+                  </li>
+        <!--           
+                  <li class="nav-item mx-1">
+                    <a class="nav-link align-items-center d-flex" href="#">
+                      <i class="fa fa-stethoscope fa-fw fa-2x mr-2"></i>SIGNIN AS DOCTOR</a>
+                  </li>
+                  <li class="nav-item mx-1">
+                    <a class="nav-link align-items-center d-flex" href="#">
+        
+                      <i class="fa fa-ambulance fa-fw fa-2x mr-2"></i>SIGNIN AS PATIENT</a>
+                  </li>
+                  -->
+                </ul>
+              </div>
             </div>
-        </main>
+            
+          </nav>
+         
 
+
+        <div class="container" id="container">
+   
+            <div class="form-container sign-up-container">
+            <!-- onsubmit="return ValidationEvent()"
+                            action="/h4ind/Common/send" -->
+              <form method="post"   action="/h4ind/Common/validateotp" >
+                <h1> Doctor's Sign Up</h1>
+                <!-- <div class="social-container">
+                  <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="social"><i class="fab fa-google"></i></a>
+                  <a href="#" class="social"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <span>or use your email for registration</span> -->
+                <!-- <input type="text" placeholder="Name" /> -->
+                <div>
+<input type="text" id="licence" name="lic" placeholder="Med-Licence-No" />
+                </div>
+                <div >
+                
+                <input type="email" id="email" name="to" placeholder="Email" />
+                <?php echo form_error('to'); ?> 
+                <input type="hidden" name="subject" id="subject" placeholder="Enter Subject"
+                                    value="OTP Verification">
+                <!-- <small><span id="emailerror
+                   ">invalid Email</span></small> -->
+                  <!-- <small><span id="emailcorrect">Invalid Email</span></small> -->
+      
+                </div>
+                
+                <div >
+                <input id="pass" type="password" name="pass" placeholder="Password" />    
+                </div>
+
+                <?php echo form_error('pass'); ?> 
+                
+                <div>
+                <input id="repass" type="password" id="otpbtn" name="repass" placeholder="Confirm-Password" />    
+                </div>
+                <?php echo form_error('repass'); ?>        
+                <div >
+                 <input  id="otpform" name="otp" type="text" placeholder="OTP" />
+                </div>
+                <button type="submit" id="signup" >Sign Up</button>
+            
+            
+                <button type="button"  id="sign" >Send OTP</button>
+                <!-- <button type="button"  id="send" >Send OTP</button> -->
+                </div>    
+              </form>
+              
+              <!-- <form method="post" action="/h4ind/Common/validateotp">
+              
+            </form>
+             -->
+            <div class="form-container sign-in-container">
+
+              <form method="post"  action="/h4ind/Doctor/login">
+              
+                <h1>Doctor's Sign In</h1>
+                <!-- <div class="social-container">
+                  <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="social"><i class="fab fa-google"></i></a>
+                  <a href="#" class="social"><i class="fab fa-tiktok"></i></a>
+                </div> -->
+                <span>or use your account</span>
+                <span>
+                                <small style="color:red"><?php echo $this->session->flashdata('item'); ?> <?php  echo form_error('otp') ?></small>
+                               
+                            </span>
+                <input type="email" name="email"  placeholder="Email" />
+                <?php echo form_error('email'); ?> 
+                <div class="input-group">
+                 <!-- <input type="password" name="password" /> -->
+                 <input type="password" name="pass1" id="password"
+                     placeholder="Enter Password" aria-label="Enter Password"
+                     aria-describedby="basic-addon2">
+                     <?php echo form_error('pass1'); ?> 
+             </div>
+             <div class="passicon float-end">
+                 <span class="input-group-text" id="basic-addon2"><i class="fa fa-eye"
+                         aria-hidden="true"></i>
+                 </span>
+             </div>
+             
+                <a href="#">Forgot your password?</a>
+                <!-- <button onclick="return false;">Sign In</button> -->
+                <button type="submit" >Sign In</button>
+              </form>
+            </div>
+            <div class="overlay-container">
+              <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                  <h1>Welcome Back!</h1>
+                  <p>Please login with your personal info</p>
+                  <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                  <h1>Hello, Doctor's!</h1>
+                  <p>Enter your personal details and start your journey with us</p>
+                  <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
 
     </body>
-    <?php
-     include_once "application/views/landing/footer.php"; 
-     ?>
+  
 
 </html>
-
+<script type="text/javascript" src="../assests/script/signin.js"></script>
 <script>
+$(document).ready(function() {
+    $("#basic-addon2").click(function() {
+        let passwordField = $("#password");
+        let passwordFieldAttr = passwordField.attr("type");
+
+        if (passwordFieldAttr == "password") {
+            passwordField.attr("type", "text");
+            $(this).html('<i class="fa fa-eye-slash" aria-hidden="true"></i>');
+        } else {
+            passwordField.attr("type", "password");
+            $(this).html('<i class="fa fa-eye" aria-hidden="true"></i>');
+        }
+    });
+});
+
+$(function () {
+        $("#sign").click(function () {
+          $("#sign").hide();
+          // $("#sign").show();
+          $("#otpform").show();
+          $("#signup").show();
+          //   if ($(this).val() == "Yes") {
+          //       $("#sign").show();
+          //   } else {
+          //       $("#sign").hide();
+          //   }
+        });
+    });
+
+   
+
+
+$(document).ready(function () {
+
+  $("#emailerror").hide();    
+          // $("#sign").hide();
+          $("#otpform").hide();
+          $("#signup").hide();
+    });
+
+
+
+
+$(document).ready(function () {        
+    
+    $("#email").change(function () {   
+      
+    var inputvalues = $(this).val();    
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;    
+    if(!regex.test(inputvalues)){  
+      // console.log("work");
+      // $("#emailerror").show();
+    alert("invalid email id");    
+    return regex.test(inputvalues);    
+    }  
+    else{
+      // $("#emailcorrect").show(); 
+    }  
+    });    
+        
+     }); 
+
+
+     $(document).ready(function () {        
+    
+    $("#sign").click(function () {   
+      var to = $("#email").val();
+      var pass = $("#pass").val();
+      var repass = $("#repass").val();
+      var subject = $("#subject").val();
+      var licence = $("#licence").val();
+      console.log("work");
+      $.post("../Common/send",{
+        to:to,
+        pass:pass,
+        repass:repass,
+        subject:subject,
+        licence:licence,
+      },
+      function(data,status){
+        //check response
+        if(status=="success"){
+        alert("OTP SEND SUCEESSFULLy");
+
+        }
+        else{
+          alert("some where is error")
+        }
+      }
+      );
+    
+    });    
+        
+     }); 
+
+
+</script>
+
+<!-- <script>
     $(document).ready(function () {
         $("#basic-addon2").click(function () {
             let passwordField = $("#password");
@@ -255,4 +369,7 @@ background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, F
         // console.log(name);
     }
 
-</script>
+</script> -->
+<?php
+    //  include_once "application/views/landing/footer.php"; 
+     ?>

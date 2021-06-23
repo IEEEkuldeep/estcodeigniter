@@ -1,0 +1,245 @@
+body,html{
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #F8F6EB;
+  }
+  
+  section{
+    background:#22C4CE;
+  }
+  
+  .carousel-inner img { 
+    
+    height:90vh;
+    object-fit: cover;
+   }
+
+ 
+  
+  .w-25{
+      width: 12% !important;
+  }
+  .banner{
+    width:100%;
+    background:url('https://hbr.org/resources/images/article_assets/2019/10/Oct19_22_1032609198.jpg') no-repeat;
+    background-size:cover;
+    background-position:center;
+    min-height:600px;
+    
+  }
+  .banner h3{
+    text-align:center;
+  
+    color:#fff;
+    font-size:80px;
+    font-weight:700;
+    font-family: 'Josefin Sans', sans-serif;
+   }
+  .banner p{
+    text-align:center;
+    color:#fff;
+    font-size:1.3em;
+    opacity:1;
+    font-family: 'Josefin Sans', sans-serif;
+    
+  }
+  .opaque-navbar .container .navbar-header >a{
+    color:#fff;
+    text-transform:uppercase;
+    font-weight:bold;
+  }
+  .opaque-navbar .container .navbar-collapse >ul >li >a{
+    color:#fff;
+    text-transform:uppercase;
+    font-weight:700;
+  }
+  
+  .opaque-navbar{
+    background-color:rgba(0,0,0,0);
+    border-bottom:1px solid #eee;
+    
+    transition : background-color 0.5s ease 0s;
+  }
+  .opaque-navbar.opaque {
+      background-color:black ;
+      border:0px;    
+      transition: background-color .5s ease 0s;
+  }
+  
+  ul.dropdown-menu {
+      background-color: black;
+  }
+  .abt{
+    text-align:center;
+  }
+  .abt .jumbotron  {
+    background-color:#22C4CE;
+  }
+  .abt h3{
+    
+    color:white;
+    font-size:40px; 
+    
+  }
+   hr{
+    width:100px;
+    border-width:3px;
+    
+  }
+  .abt p{
+    
+    color: rgba(255, 255, 255, 0.7);
+    font-size:20px;
+  }
+  .btn{
+    border:none;
+    border-radius:300px;
+    font-weight:bold;
+    text-transform:uppercase;
+    
+  }
+  .btn-default{
+    padding-bottom: 15px;
+    padding-top:15px;
+    padding-left:30px;
+    padding-right:30px;
+  }
+  
+  .no-padding{
+    padding:0;
+    margin-top:-30px;
+  }
+  
+   .col-6{
+    padding: 0 0;
+  }
+  
+  .no-padding h1{
+    padding-top:55px;
+    text-transform:uppercase;
+  }
+  .no-padding hr{
+    border: 2px solid #d0d0d0;
+  }
+  .bg-dark{
+    background-color:#222222;
+    color:white;
+  }
+  
+  .primary{
+    border:1px solid #22C4CE;
+  }
+  
+  .my-font{
+    font-size:20px;
+    
+  }
+  .bg-dark{
+    
+    padding-bottom:30px;
+  }
+  
+  .padded .col-lg-4 a{
+   color:#d35400;
+    font-weight:bold;
+  }
+  
+  .list-icon{
+    list-style-type:none;
+    text-decoration:none;
+    }
+  .list-icon li{
+    display:inline;
+    padding-right:20px;
+  }
+  .list-icon .fa{
+    font-size:40px;
+  }
+  @media (max-width: 992px) {
+    body
+    {
+      background:white;
+    }
+    .opaque-navbar {
+      background-color: black;
+      height: 60px;
+      transition: background-color .5s ease 0s;
+  }
+  
+  }
+  @media (min-width: 1200px){
+
+    h3 {
+  color: #22C4CE;
+  opacity:80%;
+  font-family: 'Zen Dots', cursive !important;
+
+      font-size:3.75rem;
+  }
+  h4 {
+    
+    opacity:80%;
+    font-family: 'Zen Dots', cursive !important;
+  
+        font-size:2rem;
+    }
+  p{
+    color: #4A4946;
+    
+    font-family: 'Zen Dots', cursive !important;
+    font-size:1.25rem;
+        
+    }
+  }
+  footer.nb-footer {
+    background: #222;
+    border-top: 4px solid #22C4CE; }
+    footer.nb-footer .about {
+    margin: 0 auto;
+    margin-top: 40px;
+    max-width: 1170px;
+    text-align: center; }
+    footer.nb-footer .about p {
+    font-size: 13px;
+    color: #999;
+    margin-top: 30px; }
+    footer.nb-footer .about .social-media {
+    margin-top: 15px; }
+    footer.nb-footer .about .social-media ul li a {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #22C4CE;
+    border: 1px solid rgba(255, 255, 255, 0.3); }
+    footer.nb-footer .about .social-media ul li a:hover {
+    background: #22C4CE;
+    color: #fff;
+    border-color: #22C4CE; }
+    footer.nb-footer .footer-info-single {
+    margin-top: 30px; }
+    footer.nb-footer .footer-info-single .title {
+    color: #aaa;
+    text-transform: uppercase;
+    font-size: 16px;
+    border-left: 4px solid #22C4CE;
+    padding-left: 5px; }
+    footer.nb-footer .footer-info-single ul li a {
+    display: block;
+    color: #aaa;
+    padding: 2px 0; }
+    footer.nb-footer .footer-info-single ul li a:hover {
+    color: #22C4CE; }
+    footer.nb-footer .footer-info-single p {
+    font-size: 13px;
+    line-height: 20px;
+    color: #aaa; }
+    footer.nb-footer .copyright {
+    margin-top: 15px;
+    background:#F8F6EB;
+    padding: 7px 0;
+    color: #999; }
+    footer.nb-footer .copyright p {
+    margin: 0;
+    padding: 0; }
